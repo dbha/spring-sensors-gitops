@@ -4,6 +4,7 @@ metadata:
   name: spring-sensors-gitops
   labels:
     app.kubernetes.io/part-of: spring-sensors-gitops
+    apps.tanzu.vmware.com/has-tests: "true"
     apps.tanzu.vmware.com/workload-type: web
     app.kubernetes.io/component: run
     carto.run/workload-name: spring-sensors-gitops
@@ -30,6 +31,7 @@ spec:
       labels:
         app.kubernetes.io/component: run
         app.kubernetes.io/part-of: spring-sensors-gitops
+        apps.tanzu.vmware.com/has-tests: "true"
         apps.tanzu.vmware.com/workload-type: web
         carto.run/workload-name: spring-sensors-gitops
         conventions.apps.tanzu.vmware.com/framework: spring-boot
@@ -44,7 +46,7 @@ spec:
       - env:
         - name: JAVA_TOOL_OPTIONS
           value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.endpoint.health.show-details=always -Dmanagement.endpoints.web.base-path="/actuator" -Dmanagement.endpoints.web.exposure.include=* -Dmanagement.health.probes.enabled="true" -Dmanagement.server.port="8081" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: ghcr.io/dbha/supply-chain/spring-sensors-gitops-demo@sha256:bcd05de6ed363c4ec61124cfc97d5d412de4649bc9a687a645737e79d760de8b
+        image: ghcr.io/dbha/supply-chain/spring-sensors-gitops-demo@sha256:eec5b262cf7907d47c827a1803bc422f31368b1b49cd5782faa3f77e36a85271
         name: workload
         ports:
         - containerPort: 8080
